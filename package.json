@@ -1,0 +1,21 @@
+{
+  "name": "covince-backend",
+  "version": "0.0.1",
+  "homepage": "https://covince.vercel.app",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.95.7",
+    "pango-utils": "^1.0.0",
+    "pg": "^8.6.0",
+    "pg-query-stream": "^4.2.1",
+    "pg-types": "^3.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
