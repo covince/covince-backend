@@ -29,7 +29,7 @@ COPY public.last_updated (id, "timestamp") FROM stdin;
 `)
 
   fs.writeSync(fd, `
-COPY public.aggregated (id, ltla, lineage, pango_clade, date, count, period_count) FROM stdin;
+COPY public.aggregated (id, area, lineage, pango_clade, date, count, period_count) FROM stdin;
 `)
   // map rows
   const records = mapTsvToRecords(text)
@@ -37,13 +37,12 @@ COPY public.aggregated (id, ltla, lineage, pango_clade, date, count, period_coun
     const record = records[i]
     fs.writeSync(fd, [
       i + 1,
-      record.ltla,
+      record.area,
       record.lineage,
       record.pango_clade,
       record.date,
       record.count,
-      record.twoweek,
-      record.average
+      record.period_count,
     ].join('\t'))
     fs.writeSync(fd, '\n')
   }

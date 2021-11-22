@@ -1,5 +1,5 @@
 const fs = require('fs')
-const mapTsvToRecords = require('./mapTsvToRecords')
+const mapTsvToRecords = require('../mapTsvToRecords')
 
 exports.seed = async function (knex) {
   const text = fs.readFileSync('./input.tsv', 'utf8')

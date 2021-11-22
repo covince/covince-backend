@@ -12,7 +12,7 @@ const validateLineages = lineages =>
   lineages.length <= MAX_LINEAGES &&
   lineages.every(l => {
     if (typeof l !== 'string') return false
-    return isPangoLineage(lineage)
+    return isPangoLineage(l)
   })
 
 router.get('/info', async (req, res, next) => {

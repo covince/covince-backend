@@ -38,7 +38,7 @@ module.exports = (text) => {
       const previousWeek = i > 0 ? entries[i - 1][1].find(_ => _.area === area && _.lineage === lineage) : null
       const period_count = count + (previousWeek ? previousWeek.count : 0)
 
-      if (average > 0) {
+      if (period_count > 0) {
         records.push({
           date,
           area,
