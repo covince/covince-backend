@@ -1,5 +1,5 @@
 const fs = require('fs')
-const mapTsvToRecords = require('./mapTsvToRecords')
+const mapCsvToRecords = require('./mapCsvToRecords')
 
 const filename = process.argv[2] || './input.csv'
 const text = fs.readFileSync(filename, 'utf8')
@@ -32,7 +32,7 @@ COPY public.last_updated (id, "timestamp") FROM stdin;
 COPY public.aggregated (id, area, lineage, pango_clade, date, count, period_count) FROM stdin;
 `)
   // map rows
-  const records = mapTsvToRecords(text)
+  const records = mapCsvToRecords(text)
   for (let i = 0; i < records.length; i++) {
     const record = records[i]
     fs.writeSync(fd, [
