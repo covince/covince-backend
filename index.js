@@ -13,7 +13,7 @@ if (process.env.COVINCE_ENABLE_CORS) {
   app.use(require('cors')())
 }
 
-const API_PREFIX = process.env.COVINCE_API_PREFIX || '/'
+const API_PREFIX = process.env.COVINCE_API_PREFIX || '/api'
 
 app.use(API_PREFIX, middleware)
 
