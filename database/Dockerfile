@@ -1,7 +1,7 @@
 ARG COVINCE_BACKEND_TAG=latest
-ARG TSV_FILE=input.tsv
+ARG TSV_FILE=input.csv
 
-FROM ghcr.io/covince/covince-backend:${COVINCE_BACKEND_TAG} as data
+FROM ghcr.io/richardgoater/covince-backend:${COVINCE_BACKEND_TAG} as data
 
 COPY generate-data-sql.js .
 COPY ${TSV_FILE} .

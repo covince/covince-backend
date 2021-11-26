@@ -1,7 +1,7 @@
 const fs = require('fs')
 const mapTsvToRecords = require('./mapTsvToRecords')
 
-const filename = process.argv[2] || './input.tsv'
+const filename = process.argv[2] || './input.csv'
 const text = fs.readFileSync(filename, 'utf8')
 
 // parse file
