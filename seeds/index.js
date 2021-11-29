@@ -1,10 +1,11 @@
 const fs = require('fs')
-const mapTsvToRecords = require('../mapTsvToRecords')
+const mapCsvToRecords = require('../mapCsvToRecords')
 
 exports.seed = async function (knex) {
-  const text = fs.readFileSync('./input.tsv', 'utf8')
+  const text = fs.readFileSync('./full_data_table.csv', 'utf8')
 
-  const records = mapTsvToRecords(text)
+  const records = mapCsvToRecords(text)
+
   console.log('Mapped', records.length, 'records, inserting ...')
   await knex('aggregated').del()
   await knex.batchInsert('aggregated', records)
