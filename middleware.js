@@ -71,11 +71,14 @@ const addUnionClauses = (context, node) => {
   query.union(clause, true)
 }
 
-router.post('/frequency', async (req, res, next) => {
-  const { lineages, area } = req.body
+router.get('/frequency', async (req, res, next) => {
+  const { lineages: lineageList, area } = req.query
+  const lineages = lineageList ? lineageList.split(',') : []
+
   if (!validateLineages(lineages)) {
     return res.status(400).send('Invalid lineages')
   }
+
   const tree = topologise(lineages)
   const query = knex.select(knex.raw('null as key, null as date, null as period_count')).from('aggregated').whereRaw('1 = 0')
   for (const root of tree) {
@@ -85,11 +88,14 @@ router.post('/frequency', async (req, res, next) => {
   res.json(result)
 })
 
-router.post('/spatiotemporal/total', async (req, res, next) => {
-  const { lineages } = req.body
+router.get('/spatiotemporal/total', async (req, res, next) => {
+  const { lineages: lineageList } = req.query
+  const lineages = lineageList ? lineageList.split(',') : []
+
   if (!validateLineages(lineages)) {
     return res.status(400).send('Invalid lineages')
   }
+
   const query =
     knex.select(['area', 'date'])
       .sum('period_count')
@@ -105,12 +111,14 @@ router.post('/spatiotemporal/total', async (req, res, next) => {
   res.json(result)
 })
 
-router.post('/spatiotemporal/lineage', async (req, res, next) => {
-  const { lineage, excluding = [] } = req.body
+router.get('/spatiotemporal/lineage', async (req, res, next) => {
+  const { lineage, excluding: excludingList } = req.query
+  const excluding = excludingList ? excludingList.split(',') : []
+
   if (!isPangoLineage(lineage)) {
     return res.status(400).send('Invalid lineages')
   }
-  if (Array.isArray(excluding) && excluding.length && !excluding.every(isPangoLineage)) {
+  if (excluding.length && !excluding.every(isPangoLineage)) {
     return res.status(400).send('Invalid lineages')
   }
 
