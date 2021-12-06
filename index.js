@@ -1,6 +1,7 @@
 const express = require('express')
 
-const middleware = require('./middleware')
+const createMiddleware = require('./middleware')
+const knex = require('./db')
 
 const app = express()
 app.set('query string', 'simple')
@@ -13,7 +14,7 @@ if (process.env.COVINCE_ENABLE_CORS) {
 
 const API_PREFIX = process.env.COVINCE_API_PREFIX || '/api'
 
-app.use(API_PREFIX, middleware)
+app.use(API_PREFIX, createMiddleware(knex))
 
 const port = process.env.HTTP_PORT || 4000
 
