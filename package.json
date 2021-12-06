@@ -1,6 +1,6 @@
 {
   "name": "covince-backend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://covince.vercel.app",
   "private": true,
   "scripts": {
