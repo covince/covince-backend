@@ -1967,10 +1967,9 @@ packet-reader@1.0.0:
   resolved "https://registry.yarnpkg.com/packet-reader/-/packet-reader-1.0.0.tgz#9238e5480dedabacfe1fe3f2771063f164157d74"
   integrity sha512-HAKu/fG3HpHFO0AA8WE8q2g+gBJaZ9MG7fcKk+IJPLTGAD6Psw4443l+9DGRbOIh3/aXr7Phy0TjilYivJo5XQ==
 
-pango-utils@^1.0.0:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/pango-utils/-/pango-utils-1.1.2.tgz#6606c313ca8fb55b03d83fcb9b8044b8e946033a"
-  integrity sha512-TXGGhe3BXBzd5anG4lZyyT4ei7saoUoW8hipjEVjKC25hLyVS4K7+oXSOdWKG8P82jPVWHGmpoHtRrKWvMMzAQ==
+"pango-utils@github:covince/pango-utils#v1.2.0":
+  version "1.2.0"
+  resolved "https://codeload.github.com/covince/pango-utils/tar.gz/490c7ca9b683f0e7c51812b36a1dab9f0816bdaa"
 
 parent-module@^1.0.0:
   version "1.0.1"
