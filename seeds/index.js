@@ -2,7 +2,7 @@ const fs = require('fs')
 const mapCsvToRecords = require('../mapCsvToRecords')
 
 exports.seed = async function (knex) {
-  const text = fs.readFileSync('./full_data_table.csv', 'utf8')
+  const text = fs.readFileSync('./input.csv', 'utf8')
 
   const records = mapCsvToRecords(text)
 
